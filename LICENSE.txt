@@ -1,0 +1,38 @@
+Branchora Custom License (No-Modification License)
+© Vijaya Kumar L – All Rights Reserved
+
+1. Usage Permission
+You are allowed to use Branchora (the software, UI, branding, scripts, and associated files) for personal or commercial projects without modification.
+
+2. No Modification
+You are NOT permitted to:
+- Modify any part of the source code
+- Create derivative works
+- Fork, rebuild, or change the structure
+- Remove, hide, or alter credits
+- Rebrand or rename the software
+
+3. Redistribution Restrictions
+You are NOT allowed to:
+- Redistribute the source code
+- Upload copies (modified or unmodified)
+- Publish this code in another repository
+- Share or sell the code independently
+
+4. Credit Requirement
+The following credits must remain visible at all times:
+- “Branchora”
+- “Created by Vijaya Kumar L”
+Credits cannot be removed or changed.
+
+5. Commercial Use
+Commercial use is permitted provided:
+- The software remains unmodified
+- Credits remain visible
+- This license file is included
+
+6. Warranty
+Branchora is provided “as-is,” without any warranties. The creator holds no liability for damage, data loss, or issues caused by usage.
+
+7. Ownership
+All rights including design, UI, brand name, code, and concept remain the exclusive property of Vijaya Kumar L. Unauthorized replication or reverse engineering is prohibited.

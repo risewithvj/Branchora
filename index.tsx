@@ -1,0 +1,23 @@
+/**
+ * 📍 Branchora Locator - Application Entry Point
+ * 
+ * AUTHOR: Vijaya Kumar L
+ * SOURCE: github.com/risewithvj
+ * (c) 2026 vjbuilds. All Rights Reserved.
+ */
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+
+const rootElement = document.getElementById('root');
+if (!rootElement) {
+  throw new Error("Could not find root element to mount to");
+}
+
+const root = ReactDOM.createRoot(rootElement);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

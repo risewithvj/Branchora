@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branchora Locator | Powered by vjbuilds</title>
+    <!-- 
+      📍 Branchora Locator - India Branch Discovery
+      Developed by: Vijaya Kumar L
+      GitHub: github.com/risewithvj
+      (c) 2026 vjbuilds. All Rights Reserved.
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col">
+    <main class="flex-grow container mx-auto px-4 py-12 md:py-20">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">
+                Branchora <span class="text-indigo-600">Locator</span>
+            </h1>
+            <p class="text-slate-500 text-lg mb-10 max-w-2xl mx-auto">
+                Discover our nationwide presence with our premium branch discovery engine.
+            </p>
+            
+            <div class="relative max-w-xl mx-auto group">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <i class="fas fa-search text-slate-400 group-focus-within:text-indigo-500 transition-colors"></i>
+                </div>
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search by name, address, or pincode..."
+                    class="w-full pl-11 pr-4 py-4 rounded-2xl bg-white border border-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                >
+            </div>
+        </div>
+
+        <div id="branchGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Cards will be injected here -->
+        </div>
+
+        <div id="noResults" class="hidden text-center py-20 bg-white rounded-3xl border border-dashed border-slate-300">
+            <i class="fas fa-search-location text-5xl text-slate-300 mb-4"></i>
+            <h3 class="text-xl font-medium text-slate-900">No branches found</h3>
+            <p class="text-slate-500 mt-2">Try adjusting your search criteria</p>
+        </div>
+    </main>
+
+    <footer class="py-8 text-center">
+        <p class="text-slate-400 text-[11px] md:text-xs tracking-tight">
+            © 2026 Built by <span class="font-bold">vjbuilds</span>. All rights reserved. github.com/risewithvj
+        </p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

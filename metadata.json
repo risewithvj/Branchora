@@ -1,0 +1,8 @@
+{
+  "name": "Branchora Locator",
+  "description": "Professional branch discovery and management system powered by vjbuilds.",
+  "vjbuilds_signature": "github.com/risewithvj",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

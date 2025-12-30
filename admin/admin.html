@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management - Branchora Locator | Powered by vjbuilds</title>
+    <!-- 
+      📍 Branchora Locator Admin Panel
+      Developed by: Vijaya Kumar L
+      GitHub: github.com/risewithvj
+      (c) 2026 vjbuilds. All Rights Reserved.
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col">
+    <div class="max-w-7xl mx-auto px-4 py-12 flex-grow w-full">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+            <div>
+                <a href="../index.html" class="text-indigo-600 text-sm font-semibold hover:underline mb-2 block">
+                    <i class="fas fa-arrow-left mr-1"></i> View Live Site
+                </a>
+                <h1 class="text-3xl font-bold text-slate-900">Branchora Management</h1>
+                <p class="text-slate-500 text-sm">Add, edit, or delete office locations across the network.</p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                <button id="importBtn" class="px-5 py-2.5 bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 transition-all flex items-center text-sm font-semibold">
+                    <i class="fas fa-file-import mr-2 text-emerald-500"></i> Import CSV
+                </button>
+                <input type="file" id="csvFileInput" class="hidden" accept=".csv">
+                
+                <button id="exportCsvBtn" class="px-5 py-2.5 bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 transition-all flex items-center text-sm font-semibold">
+                    <i class="fas fa-file-excel mr-2 text-indigo-500"></i> Export CSV
+                </button>
+
+                <button id="exportJsBtn" class="px-5 py-2.5 bg-white border border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 transition-all flex items-center text-sm font-semibold">
+                    <i class="fas fa-code mr-2 text-slate-400"></i> Export JS
+                </button>
+
+                <button id="addBranchBtn" class="px-6 py-2.5 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 shadow-lg shadow-indigo-100 transition-all flex items-center font-bold text-sm">
+                    <i class="fas fa-plus mr-2"></i> Add New Branch
+                </button>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead class="bg-slate-50 border-b border-slate-200">
+                        <tr>
+                            <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase">S.No</th>
+                            <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase">Branch Info</th>
+                            <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase">Status</th>
+                            <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="branchTableBody" class="divide-y divide-slate-100">
+                        <!-- Rows injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Branch Modal -->
+    <div id="branchModal" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 id="modalTitle" class="text-2xl font-bold text-slate-900">Edit Branch Details</h2>
+                    <button id="closeModal" class="text-slate-400 hover:text-slate-600 transition-colors"><i class="fas fa-times text-xl"></i></button>
+                </div>
+                
+                <form id="branchForm" class="space-y-6">
+                    <input type="hidden" id="editId">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="md:col-span-2">
+                            <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Office Name (Branch Name)</label>
+                            <input required id="fName" type="text" placeholder="e.g. Hyderabad Main" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Serial Number</label>
+                            <input required id="fOrder" type="number" min="1" placeholder="1" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none">
+                        </div>
+                    </div>
+                    <!-- Rest of form... -->
+                    <div class="pt-6 flex justify-end gap-4 border-t border-slate-100">
+                        <button type="button" id="cancelModal" class="px-6 py-3 text-slate-500 font-bold hover:text-slate-800 transition-colors">Cancel</button>
+                        <button type="submit" class="px-10 py-3 bg-indigo-600 text-white rounded-2xl font-bold shadow-lg shadow-indigo-100 hover:bg-indigo-700 active:scale-95 transition-all">
+                            Save Office Data
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-12 text-center mt-auto border-t border-slate-200 bg-white">
+        <p class="text-slate-400 text-[11px] md:text-xs tracking-tight">
+            © 2026 Built by <span class="font-bold">vjbuilds</span>. All rights reserved. github.com/risewithvj
+        </p>
+    </footer>
+
+    <script type="module" src="ui.js"></script>
+</body>
+</html>

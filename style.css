@@ -1,0 +1,129 @@
+/*
+ * 📍 Branchora Locator - Stylesheet
+ * 
+ * AUTHOR: Vijaya Kumar L
+ * SOURCE: github.com/risewithvj
+ * (c) 2026 vjbuilds. All Rights Reserved.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.apple-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    /* CRITICAL: Ensure card doesn't clip the tooltip */
+    overflow: visible !important;
+    z-index: 1;
+}
+
+.apple-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+    z-index: 20;
+}
+
+/* Status Label Container */
+.status-pill {
+    position: relative;
+    cursor: help;
+}
+
+/* Base Tooltip Logic */
+[data-tooltip] {
+    position: relative;
+}
+
+/* The Tooltip Box */
+[data-tooltip]:after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 140%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #1e293b;
+    color: #f8fafc;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.2;
+    width: max-content;
+    max-width: 280px; /* Increased to prevent wrapping on desktop */
+    white-space: nowrap; /* Keep on one line if possible */
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 9999;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Tooltip Arrow */
+[data-tooltip]:before {
+    content: '';
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    border-width: 6px;
+    border-style: solid;
+    border-color: #1e293b transparent transparent transparent;
+    opacity: 0;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 9999;
+}
+
+[data-tooltip]:hover:after,
+[data-tooltip]:hover:before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Mobile Specific Fix: Prevent Right-Side Overflow */
+@media (max-width: 640px) {
+    [data-tooltip]:after {
+        left: auto;
+        right: 0; /* Align to right edge of pill */
+        transform: translateY(10px);
+        max-width: 200px;
+        white-space: normal; /* Allow wrap if very long */
+        text-align: right;
+    }
+    
+    [data-tooltip]:before {
+        left: auto;
+        right: 12px;
+        transform: translateY(10px);
+    }
+
+    [data-tooltip]:hover:after {
+        transform: translateY(0);
+    }
+    
+    [data-tooltip]:hover:before {
+        transform: translateY(0);
+    }
+
+    input[type="text"] {
+        font-size: 16px; /* Prevents iOS auto-zoom */
+    }
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
