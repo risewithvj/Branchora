@@ -150,6 +150,7 @@ Branchora ensures **zero server cost**, **zero database management**, and **inst
 [![Credit Required](https://img.shields.io/badge/Credit-Required-blue)]()  
 [![Commercial Use Allowed](https://img.shields.io/badge/Commercial%20Use-Allowed-green)]()  
 [![Branchora License](https://img.shields.io/badge/License-Branchora%20Custom-black)]()
+![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=risewithvj.Branchora&color=purple&label=Visitors&style=for-the-badge)
 
 ---
 
